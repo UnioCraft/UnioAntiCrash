@@ -69,18 +69,20 @@ public class Bukkitt extends JavaPlugin implements Listener {
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-        ItemStack itemInOffHand = player.getInventory().getItemInOffHand();
+        ItemStack item = player.getInventory().getItemInHand();
 
-        if (checkItem(itemInMainHand)) {
-            player.getInventory().setItemInMainHand(null);
+        if (checkItem(item)) {
+            player.getInventory().setItemInHand(null);
             player.sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("itemsDeleted")));
         }
 
-        if (checkItem(itemInOffHand)) {
-            player.getInventory().setItemInOffHand(null);
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("itemsDeleted")));
-        }
+        try {
+            ItemStack itemInOffHand = player.getInventory().getItemInOffHand();
+            if (checkItem(itemInOffHand)) {
+                player.getInventory().setItemInOffHand(null);
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("itemsDeleted")));
+            }
+        } catch (Exception ignored) {}
     }
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
