@@ -19,6 +19,10 @@ Try to send this text to chat with a Turkish 1.8 Minecraft client:
 
 ## How to install?
 1- Drag the UnioAntiCrash.jar to plugins folder.
+
 2- Edit config.yml if you want to change messages.
+
 3- If you want extra protection drag this plugin both Bungee and Bukkit.
+
 4- Restart your server.
+
