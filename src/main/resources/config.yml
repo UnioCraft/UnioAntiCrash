@@ -1,2 +1,5 @@
 cancelMessage: "&2[&bAntiCrash&2] &cHatalı bir mesaj yazdınız!"
 itemsDeleted: "&2[&bAntiCrash&2] &cÜstünüzde yasa dışı eşyalar bulundu ve silindi!"
+longSign: "&2[&bAntiCrash&2] Tabelaya çok uzun yazı yazdınız!"
+
+maxSignLength: 24 # Maksimum tabela satırına yazılabilecek karakter sayısı.

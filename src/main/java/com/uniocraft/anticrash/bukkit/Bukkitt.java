@@ -107,9 +107,9 @@ public class Bukkitt extends JavaPlugin implements Listener {
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onSignChange(SignChangeEvent event) {
         for (String line : event.getLines()) {
-            if (line.matches("^[a-zA-Z0-9_]*$") && line.length() > 16) {
+            if (line.length() > getConfig().getInt("maxSignLength")) {
                 event.setCancelled(true);
-                event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("cancelMessage")));
+                event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("longSign")));
             }
         }
     }
