@@ -53,6 +53,8 @@ public class Bukkitt extends JavaPlugin implements Listener {
 
     private boolean checkItem(ItemStack item) {
         if (item == null) return false;
+        if (item.getItemMeta() == null) return false;
+
         String itemName = item.getItemMeta().getDisplayName();
         List<String> lore = item.getItemMeta().getLore();
 
@@ -82,7 +84,7 @@ public class Bukkitt extends JavaPlugin implements Listener {
                 player.getInventory().setItemInOffHand(null);
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("itemsDeleted")));
             }
-        } catch (Exception ignored) {}
+        } catch (NoSuchMethodError | Exception ignored) {}
     }
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
